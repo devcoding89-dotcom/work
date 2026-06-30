@@ -1,0 +1,4 @@
+Resume Tailor v2.7
+Fix: Frontend version mark updated to v2.7.
+Backend unchanged from v2.6.
+2025-12-12T15:48:17.371985Z

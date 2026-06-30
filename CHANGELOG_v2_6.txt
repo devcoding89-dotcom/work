@@ -1,0 +1,5 @@
+Resume Tailor v2.6
+Fix: Experience rewrite now requests sentences only (no bullets/numbering) and strips any leading list markers.
+Fix: Bullet-like prefixes are no longer preserved; DOCX list styles control bullets.
+Frontend unchanged.
+2025-12-12T15:46:56.809207Z
