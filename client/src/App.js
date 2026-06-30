@@ -34,7 +34,8 @@ function App() {
       form.append("jd", jd);
       form.append("company", company);
 
-      const res = await fetch("http://localhost:4000/api/modify-resume", {
+      const apiUrl = process.env.REACT_APP_API_URL || "http://localhost:4000";
+      const res = await fetch(`${apiUrl}/api/modify-resume`, {
         method: "POST",
         body: form,
       });
