@@ -25,7 +25,15 @@ const upload = multer({
 });
 
 app.use((req, res, next) => {
-  res.header("Access-Control-Allow-Origin", "http://localhost:3000");
+  const allowedOrigins = [
+    "http://localhost:3000",
+    "https://resume-tailor.vercel.app",
+    "https://*.vercel.app"
+  ];
+  const origin = req.headers.origin;
+  if (allowedOrigins.includes(origin) || origin?.includes("vercel.app")) {
+    res.header("Access-Control-Allow-Origin", origin || "*");
+  }
   res.header("Access-Control-Allow-Headers", "Content-Type");
   res.header("Access-Control-Allow-Methods", "GET,POST,OPTIONS");
   if (req.method === "OPTIONS") return res.sendStatus(200);
@@ -88,3 +96,5 @@ app.post("/api/modify-resume", upload.single("resume"), async (req, res) => {
 });
 
 app.listen(PORT, () => console.log("Server running on port", PORT));
+
+module.exports = app;

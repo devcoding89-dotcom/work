@@ -1,0 +1,19 @@
+{
+  "buildCommand": "cd client && npm install && npm run build",
+  "outputDirectory": "client/build",
+  "env": {
+    "OPENAI_API_KEY": "@openai_api_key"
+  },
+  "rewrites": [
+    {
+      "source": "/api/:path*",
+      "destination": "/server/index.js"
+    }
+  ],
+  "functions": {
+    "server/index.js": {
+      "memory": 1024,
+      "maxDuration": 60
+    }
+  }
+}
